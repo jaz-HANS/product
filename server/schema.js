@@ -30,7 +30,7 @@ const ProductSchema = new Schema({
       name: String,
       original_price: String,
       sale_price: String,
-      'default?': Number,
+      'default?': Boolean,
       photos: [
         {
           thumbnail_url: String,
@@ -65,7 +65,7 @@ const CartSchema = new Schema({
   id: Number,
   user_session: Number,
   product_id: Number,
-  active: Number,
+  active: Boolean,
 });
 
 const Product = mongoose.model('Product', ProductSchema);
