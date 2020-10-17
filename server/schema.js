@@ -38,6 +38,7 @@ const ProductSchema = new Schema({
         },
       ],
       skus: {
+        'One Size': Number,
         XS: Number,
         S: Number,
         M: Number,
@@ -45,17 +46,19 @@ const ProductSchema = new Schema({
         XL: Number,
         XXL: Number,
         7: Number,
-        8: Number,
-        9: Number,
-        10: Number,
-        11: Number,
-        12: Number,
         7.5: Number,
+        8: Number,
         8.5: Number,
+        9: Number,
         9.5: Number,
+        10: Number,
         10.5: Number,
+        11: Number,
         11.5: Number,
+        12: Number,
       },
     },
   ],
 });
+
+const Products = mongoose.model('Products', ProductSchema);
