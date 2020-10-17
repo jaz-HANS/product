@@ -9,7 +9,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
-  id: Number,
+  _id: Number,
   name: String,
   slogan: String,
   description: String,
@@ -62,7 +62,7 @@ const ProductSchema = new Schema({
 });
 
 const CartSchema = new Schema({
-  id: Number,
+  _id: Number,
   user_session: Number,
   product_id: Number,
   active: Boolean,
