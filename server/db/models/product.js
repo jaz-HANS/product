@@ -55,17 +55,8 @@ const ProductSchema = new Schema({
   ],
 });
 
-const CartSchema = new Schema({
-  _id: Number,
-  user_session: Number,
-  product_id: Number,
-  active: Boolean,
-});
-
 const Product = mongoose.model('Product', ProductSchema);
-const Cart = mongoose.model('Cart', CartSchema);
 
 module.exports = {
   Product,
-  Cart,
 };
