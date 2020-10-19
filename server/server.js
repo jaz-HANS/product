@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const parser = require('body-parser');
 const cors = require('cors');
+const { ProductController } = require('./db/controllers/product');
 
 const app = express();
 const PORT = 3001;
@@ -21,3 +22,17 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+// ==========================
+// ==== PRODUCTS ROUTES =====
+// ==========================
+
+app.get('/products/list', (req, res) => {
+  ProductController.getProductList(req.body, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
