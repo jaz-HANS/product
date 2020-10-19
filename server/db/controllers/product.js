@@ -3,38 +3,38 @@ const { Product } = require('../models/product');
 const ProductController = {
   getProductList: (body, callback) => {
     const max = body.count || 5;
-    Product.find((err, res) => {
+    Product.find((err, docs) => {
       if (err) {
         callback(err);
       } else {
-        callback(null, res);
+        callback(null, docs);
       }
     }).setOptions({ limit: max });
   },
   getOneProduct: (id, callback) => {
-    Product.find({ _id: id }, (err, res) => {
+    Product.find({ _id: id }, (err, doc) => {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, res);
+        callback(null, doc);
       }
     });
   },
   getProductStyles: (id, callback) => {
-    Product.find({ _id: id }, (err, res) => {
+    Product.find({ _id: id }, (err, doc) => {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, res.styles);
+        callback(null, doc.styles);
       }
     });
   },
   getRelatedProducts: (id, callback) => {
-    Product.find({ _id: id }, (err, res) => {
+    Product.find({ _id: id }, (err, doc) => {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, res.related);
+        callback(null, doc.related);
       }
     });
   },
