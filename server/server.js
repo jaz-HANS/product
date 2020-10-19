@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const parser = require('body-parser');
 const cors = require('cors');
 const { ProductController } = require('./db/controllers/product');
+const { CartController } = require('./db/controllers/cart');
 
 const app = express();
 const PORT = 3001;
@@ -59,6 +60,20 @@ app.get('/products/:product_id/styles', (req, res) => {
 
 app.get('/products/:product_id/related', (req, res) => {
   ProductController.getRelatedProducts(req.params.id, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
+
+// ==========================
+// ====== CART ROUTES =======
+// ==========================
+
+app.get('/cart/:user_session', (req, res) => {
+  CartController.getProductList(req.params.id, (err, data) => {
     if (err) {
       res.status(404).send(err);
     } else {
