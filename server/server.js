@@ -36,3 +36,13 @@ app.get('/products/list', (req, res) => {
     }
   });
 });
+
+app.get('/products/:product_id', (req, res) => {
+  ProductController.getOneProduct(req.params.id, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
