@@ -29,6 +29,15 @@ const ProductController = {
       }
     });
   },
+  getRelatedProducts: (id, callback) => {
+    Product.find({ _id: id }, (err, res) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, res.related);
+      }
+    });
+  },
 };
 
 module.exports = {
