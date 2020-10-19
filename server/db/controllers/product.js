@@ -1,25 +1,15 @@
 const { Product } = require('../models/product');
 
 const ProductController = {
-  getAllQuestions: (product, callback) => {
-    const id = product.product_id;
-    Product.find({ product_id: id }, (err, data) => {
+  getProductList: (body, callback) => {
+    const max = body.count || 5;
+    Product.find((err, res) => {
       if (err) {
-        callback(err, null);
+        callback(err);
       } else {
-        callback(null, data);
+        callback(null, res);
       }
-    });
-  },
-  create: (id, body, callback) => {
-    const newProduct = new Product({ product_id: id, results: body });
-    newProduct.save((err, data) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, data);
-      }
-    });
+    }).setOptions({ limit: max });
   },
 };
 
