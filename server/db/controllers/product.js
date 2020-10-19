@@ -11,6 +11,15 @@ const ProductController = {
       }
     }).setOptions({ limit: max });
   },
+  getOneProduct: (id, callback) => {
+    Product.find({ _id: id }, (err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
 };
 
 module.exports = {
