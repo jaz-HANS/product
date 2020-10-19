@@ -56,3 +56,13 @@ app.get('/products/:product_id/styles', (req, res) => {
     }
   });
 });
+
+app.get('/products/:product_id/related', (req, res) => {
+  ProductController.getRelatedProducts(req.params.id, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
