@@ -46,3 +46,13 @@ app.get('/products/:product_id', (req, res) => {
     }
   });
 });
+
+app.get('/products/:product_id', (req, res) => {
+  ProductController.getProductStyles(req.params.id, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
