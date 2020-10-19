@@ -12,11 +12,20 @@ const ProductController = {
     }).setOptions({ limit: max });
   },
   getOneProduct: (id, callback) => {
-    Product.find({ _id: id }, (err, data) => {
+    Product.find({ _id: id }, (err, res) => {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, data);
+        callback(null, res);
+      }
+    });
+  },
+  getProductStyles: (id, callback) => {
+    Product.find({ _id: id }, (err, res) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, res.styles);
       }
     });
   },
