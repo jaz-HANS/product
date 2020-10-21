@@ -17,7 +17,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
       const generateRelated = () => {
         const related = [];
         for (let k = 0; k < Math.floor(Math.random() * Math.floor(7)); k++) {
-          related.push(Math.floor(Math.random() * Math.floor(10000)));
+          related.push(Math.floor(Math.random() * Math.floor(1000)));
         }
         return related;
       };
