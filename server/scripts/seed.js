@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 const faker = require('faker');
 const fs = require('fs');
 
@@ -11,7 +12,23 @@ function writeOneThousandProducts(writer, encoding, callback) {
     let ok = true;
     do {
       i -= 1;
-      id += 1;
+      productId += 1;
+      /* Generate Individual Product */
+      const generateProduct = () => {
+        const product = {
+          _id: productId,
+          name: faker.commerce.productName(),
+          slogan: faker.lorem.sentence(),
+          description: faker.commerce.productDescription(),
+          category: faker.commerce.productAdjective(),
+          default_price: faker.commerce.price(),
+          features: generateFeatures(),
+          related: generateRelated(),
+          styles: generateStyles(),
+        };
+        return product;
+      };
+
       let dataObj = JSON.stringify({});
       if (i === 0) {
         writer.write(dataObj, encoding, callback);
