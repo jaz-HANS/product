@@ -13,10 +13,18 @@ function writeOneThousandProducts(writer, encoding, callback) {
     do {
       i -= 1;
       productId += 1;
+      /* Generate Related Products Array */
+      const generateRelated = () => {
+        const related = [];
+        for (let k = 0; k < Math.floor(Math.random() * Math.floor(7)); k++) {
+          related.push(Math.floor(Math.random() * Math.floor(10000)));
+        }
+        return related;
+      };
       /* Generate Features Array */
       const generateFeatures = () => {
         const features = [];
-        for (let k = 0; k < Math.floor(Math.random() * Math.floor(5)); k++) {
+        for (let k = 0; k < Math.floor(Math.random() * Math.floor(6)); k++) {
           features.push({
             feature: faker.commerce.productMaterial(),
             value: faker.lorem.word(),
