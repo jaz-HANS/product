@@ -13,6 +13,17 @@ function writeOneThousandProducts(writer, encoding, callback) {
     do {
       i -= 1;
       productId += 1;
+      /* Generate Features Array */
+      const generateFeatures = () => {
+        const features = [];
+        for (let k = 0; k < Math.floor(Math.random() * Math.floor(5)); k++) {
+          features.push({
+            feature: faker.commerce.productMaterial(),
+            value: faker.lorem.word(),
+          });
+        }
+        return features;
+      };
       /* Generate Individual Product */
       const generateProduct = () => {
         const product = {
