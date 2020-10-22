@@ -13,6 +13,26 @@ function writeOneThousandProducts(writer, encoding, callback) {
     do {
       i -= 1;
       productId += 1;
+      /* Generate Styles Array */
+      const generateStyles = () => {
+        const styles = [];
+        const product = this;
+        let isDefault = 1;
+        for (let k = 0; k < Math.floor(Math.random() * (6 - 1) + 1); k++) {
+          styles.push({
+            style_id: styleId,
+            name: faker.lorem.word(),
+            original_price: product.default_price,
+            sale_price: (product.default_price * 0.75),
+            'default?': isDefault,
+            photos: generatePhotos(),
+            skus: generateSkus(product.category),
+          });
+          isDefault = 0;
+          styleId += 1;
+        }
+        return styles;
+      };
       /* Generate Related Products Array */
       const generateRelated = () => {
         const related = [];
