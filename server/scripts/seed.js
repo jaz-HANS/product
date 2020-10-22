@@ -13,6 +13,41 @@ function writeOneThousandProducts(writer, encoding, callback) {
     do {
       i -= 1;
       productId += 1;
+      /* Generate Skus Object */
+      const generateSkus = (category) => {
+        let skus;
+        if (category === 'Footwear') {
+          skus = {
+            7: faker.random.number(),
+            7.5: faker.random.number(),
+            8: faker.random.number(),
+            8.5: faker.random.number(),
+            9: faker.random.number(),
+            9.5: faker.random.number(),
+            10: faker.random.number(),
+            10.5: faker.random.number(),
+            11: faker.random.number(),
+            11.5: faker.random.number(),
+            12: faker.random.number(),
+          };
+        }
+        if (category === 'Accessories') {
+          skus = {
+            'One Size': faker.random.number(),
+          };
+        }
+        if (category === 'Clothing') {
+          skus = {
+            XS: faker.random.number(),
+            S: faker.random.number(),
+            M: faker.random.number(),
+            L: faker.random.number(),
+            XL: faker.random.number(),
+            XXL: faker.random.number(),
+          };
+        }
+        return skus;
+      };
       /* Generate Photos Array */
       const generatePhotos = () => {
         const photos = [];
