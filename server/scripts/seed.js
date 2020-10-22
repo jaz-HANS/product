@@ -32,6 +32,11 @@ function writeOneThousandProducts(writer, encoding, callback) {
         }
         return features;
       };
+      /* Generate Product Category */
+      const generateCategory = () => {
+        const categories = ['Accessories', 'Footwear', 'Clothing'];
+        return categories[Math.random() * (3 - 1) + 1];
+      };
       /* Generate Individual Product */
       const generateProduct = () => {
         const product = {
@@ -39,7 +44,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
           name: faker.commerce.productName(),
           slogan: faker.lorem.sentence(),
           description: faker.commerce.productDescription(),
-          category: faker.commerce.productAdjective(),
+          category: generateCategory(),
           default_price: faker.commerce.price(),
           features: generateFeatures(),
           related: generateRelated(),
