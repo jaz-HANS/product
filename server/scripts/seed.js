@@ -117,7 +117,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
           _id: productId,
           name: faker.commerce.productName(),
           slogan: faker.lorem.sentence(),
-          description: faker.commerce.productDescription(),
+          description: faker.lorem.sentence(),
           category: generateCategory(),
           default_price: faker.commerce.price(),
           features: generateFeatures(),
