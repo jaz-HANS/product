@@ -13,6 +13,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
     do {
       i -= 1;
       productId += 1;
+
       /* Generate Skus Object */
       const generateSkus = (category) => {
         let skus;
@@ -48,10 +49,11 @@ function writeOneThousandProducts(writer, encoding, callback) {
         }
         return skus;
       };
+
       /* Generate Photos Array */
       const generatePhotos = () => {
         const photos = [];
-        for (let k = 0; k < Math.floor(Math.random() * Math.floor(6)); k++) {
+        for (let j = 0; j < Math.floor(Math.random() * Math.floor(6)); j++) {
           photos.push({
             thumbnail_url: faker.image.imageUrl(),
             url: faker.image.imageUrl(),
@@ -59,6 +61,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
         }
         return photos;
       };
+
       /* Generate Styles Array */
       const generateStyles = () => {
         const styles = [];
@@ -79,18 +82,20 @@ function writeOneThousandProducts(writer, encoding, callback) {
         }
         return styles;
       };
+
       /* Generate Related Products Array */
       const generateRelated = () => {
         const related = [];
-        for (let k = 0; k < Math.floor(Math.random() * Math.floor(7)); k++) {
+        for (let l = 0; l < Math.floor(Math.random() * Math.floor(7)); l++) {
           related.push(Math.floor(Math.random() * Math.floor(1000)));
         }
         return related;
       };
+
       /* Generate Features Array */
       const generateFeatures = () => {
         const features = [];
-        for (let k = 0; k < Math.floor(Math.random() * Math.floor(6)); k++) {
+        for (let m = 0; m < Math.floor(Math.random() * Math.floor(6)); m++) {
           features.push({
             feature: faker.commerce.productMaterial(),
             value: faker.lorem.word(),
@@ -98,11 +103,13 @@ function writeOneThousandProducts(writer, encoding, callback) {
         }
         return features;
       };
+
       /* Generate Product Category */
       const generateCategory = () => {
         const categories = ['Accessories', 'Footwear', 'Clothing'];
         return categories[Math.random() * (3 - 1) + 1];
       };
+
       /* Generate Individual Product */
       const generateProduct = () => {
         const product = {
