@@ -7,8 +7,8 @@ const writeProducts = fs.createWriteStream('products.json');
 function writeOneThousandProducts(writer, encoding, callback) {
   console.time('NoSQL Generation Speed');
   let i = 1000;
-  let productId = 0;
-  let styleId = 0;
+  let productId = 1;
+  let styleId = 1;
   function write() {
     let ok = true;
     do {
