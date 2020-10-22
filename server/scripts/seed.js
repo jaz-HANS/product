@@ -64,19 +64,18 @@ function writeOneThousandProducts(writer, encoding, callback) {
       };
 
       /* Generate Styles Array */
-      const generateStyles = () => {
+      const generateStyles = (category, price) => {
         const styles = [];
-        const product = this;
         let isDefault = 1;
         for (let k = 0; k < Math.floor(Math.random() * (6 - 1) + 1); k++) {
           styles.push({
             style_id: styleId,
             name: faker.lorem.word(),
-            original_price: product.default_price,
-            sale_price: (product.default_price * 0.75),
+            original_price: price,
+            sale_price: (price * 0.75),
             'default?': isDefault,
             photos: generatePhotos(),
-            skus: generateSkus(product.category),
+            skus: generateSkus(category),
           });
           isDefault = 0;
           styleId += 1;
@@ -114,16 +113,18 @@ function writeOneThousandProducts(writer, encoding, callback) {
 
       /* Generate Individual Product */
       const generateProduct = () => {
+        const randCat = generateCategory();
+        const randPrice = faker.commerce.price();
         const product = {
           _id: productId,
           name: faker.commerce.productName(),
           slogan: faker.lorem.sentence(),
           description: faker.lorem.sentence(),
-          category: generateCategory(),
-          default_price: faker.commerce.price(),
+          category: randCat,
+          default_price: randPrice,
           features: generateFeatures(),
           related: generateRelated(),
-          styles: generateStyles(),
+          styles: generateStyles(randCat, randPrice),
         };
         return product;
       };
