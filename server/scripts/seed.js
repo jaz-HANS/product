@@ -5,6 +5,7 @@ const fs = require('fs');
 const writeProducts = fs.createWriteStream('products.json');
 
 function writeOneThousandProducts(writer, encoding, callback) {
+  console.time('NoSQL Generation Speed');
   let i = 1000;
   let productId = 0;
   let styleId = 0;
@@ -127,7 +128,9 @@ function writeOneThousandProducts(writer, encoding, callback) {
       };
 
       const dataObj = JSON.stringify(generateProduct());
+
       if (i === 0) {
+        console.timeEnd('NoSQL Generation Speed');
         writer.write(dataObj, encoding, callback);
       } else {
         // see if we should continue, or wait
