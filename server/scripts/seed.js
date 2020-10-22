@@ -20,32 +20,32 @@ function writeOneThousandProducts(writer, encoding, callback) {
         let skus;
         if (category === 'Footwear') {
           skus = {
-            7: faker.random.number(),
-            7.5: faker.random.number(),
-            8: faker.random.number(),
-            8.5: faker.random.number(),
-            9: faker.random.number(),
-            9.5: faker.random.number(),
-            10: faker.random.number(),
-            10.5: faker.random.number(),
-            11: faker.random.number(),
-            11.5: faker.random.number(),
-            12: faker.random.number(),
+            7: Math.floor(Math.random() * (51 - 1) + 1),
+            7.5: Math.floor(Math.random() * (51 - 1) + 1),
+            8: Math.floor(Math.random() * (51 - 1) + 1),
+            8.5: Math.floor(Math.random() * (51 - 1) + 1),
+            9: Math.floor(Math.random() * (51 - 1) + 1),
+            9.5: Math.floor(Math.random() * (51 - 1) + 1),
+            10: Math.floor(Math.random() * (51 - 1) + 1),
+            10.5: Math.floor(Math.random() * (51 - 1) + 1),
+            11: Math.floor(Math.random() * (51 - 1) + 1),
+            11.5: Math.floor(Math.random() * (51 - 1) + 1),
+            12: Math.floor(Math.random() * (51 - 1) + 1),
           };
         }
         if (category === 'Accessories') {
           skus = {
-            'One Size': faker.random.number(),
+            'One Size': Math.floor(Math.random() * (51 - 1) + 1),
           };
         }
         if (category === 'Clothing') {
           skus = {
-            XS: faker.random.number(),
-            S: faker.random.number(),
-            M: faker.random.number(),
-            L: faker.random.number(),
-            XL: faker.random.number(),
-            XXL: faker.random.number(),
+            XS: Math.floor(Math.random() * (51 - 1) + 1),
+            S: Math.floor(Math.random() * (51 - 1) + 1),
+            M: Math.floor(Math.random() * (51 - 1) + 1),
+            L: Math.floor(Math.random() * (51 - 1) + 1),
+            XL: Math.floor(Math.random() * (51 - 1) + 1),
+            XXL: Math.floor(Math.random() * (51 - 1) + 1),
           };
         }
         return skus;
