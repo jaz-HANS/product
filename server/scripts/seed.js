@@ -96,7 +96,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
       /* Generate Features Array */
       const generateFeatures = () => {
         const features = [];
-        for (let m = 0; m < Math.floor(Math.random() * Math.floor(6)); m++) {
+        for (let m = 0; m < Math.floor(Math.random() * (7 - 1) + 1); m++) {
           features.push({
             feature: faker.commerce.productMaterial(),
             value: faker.lorem.word(),
