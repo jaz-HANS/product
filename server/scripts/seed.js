@@ -7,7 +7,7 @@ const writeProducts = fs.createWriteStream('products.json');
 function writeOneThousandProducts(writer, encoding, callback) {
   console.time('NoSQL Generation Speed');
   let i = 1000;
-  let productId = 1;
+  let productId = 0;
   let styleId = 1;
   function write() {
     let ok = true;
@@ -108,7 +108,8 @@ function writeOneThousandProducts(writer, encoding, callback) {
       /* Generate Product Category */
       const generateCategory = () => {
         const categories = ['Accessories', 'Footwear', 'Clothing'];
-        return categories[Math.random() * (3 - 1) + 1];
+        const idx = Math.floor(Math.random() * (3 - 0) + 0);
+        return categories[idx];
       };
 
       /* Generate Individual Product */
