@@ -72,7 +72,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
             style_id: styleId,
             name: faker.lorem.word(),
             original_price: price,
-            sale_price: (price * 0.75),
+            sale_price: `${(price * 0.75)}`,
             'default?': isDefault,
             photos: generatePhotos(),
             skus: generateSkus(category),
