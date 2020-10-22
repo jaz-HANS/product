@@ -126,7 +126,7 @@ function writeOneThousandProducts(writer, encoding, callback) {
         return product;
       };
 
-      let dataObj = JSON.stringify({});
+      const dataObj = JSON.stringify(generateProduct());
       if (i === 0) {
         writer.write(dataObj, encoding, callback);
       } else {
