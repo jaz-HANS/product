@@ -13,6 +13,17 @@ function writeOneThousandProducts(writer, encoding, callback) {
     do {
       i -= 1;
       productId += 1;
+      /* Generate Photos Array */
+      const generatePhotos = () => {
+        const photos = [];
+        for (let k = 0; k < Math.floor(Math.random() * Math.floor(6)); k++) {
+          photos.push({
+            thumbnail_url: faker.image.imageUrl(),
+            url: faker.image.imageUrl(),
+          });
+        }
+        return photos;
+      };
       /* Generate Styles Array */
       const generateStyles = () => {
         const styles = [];
