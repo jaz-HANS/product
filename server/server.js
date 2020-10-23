@@ -28,44 +28,40 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // ==== PRODUCTS ROUTES =====
 // ==========================
 
-app.get('/products/list', (req, res) => {
-  ProductController.getProductList(req.body, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+app.get('/products/list', async (req, res) => {
+  try {
+    const docs = await ProductController.getProductList(req.body);
+    res.status(200).send(docs);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 
-app.get('/products/:product_id', (req, res) => {
-  ProductController.getOneProduct(req.params.id, (err, data) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+app.get('/products/:product_id', async (req, res) => {
+  try {
+    const docs = await ProductController.getOneProduct(req.params.product_id);
+    res.status(200).send(docs);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 });
 
-app.get('/products/:product_id/styles', (req, res) => {
-  ProductController.getProductStyles(req.params.id, (err, data) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+app.get('/products/:product_id/styles', async (req, res) => {
+  try {
+    const docs = await ProductController.getOneProduct(req.params.product_id);
+    res.status(200).send(docs.styles);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 });
 
-app.get('/products/:product_id/related', (req, res) => {
-  ProductController.getRelatedProducts(req.params.id, (err, data) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+app.get('/products/:product_id/related', async (req, res) => {
+  try {
+    const docs = await ProductController.getOneProduct(req.params.product_id);
+    res.status(200).send(docs.related);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 });
 
 // ==========================
@@ -73,7 +69,7 @@ app.get('/products/:product_id/related', (req, res) => {
 // ==========================
 
 app.get('/cart/:user_session', (req, res) => {
-  CartController.getProductList(req.params.id, (err, data) => {
+  CartController.getProductList(req.params.user_session, (err, data) => {
     if (err) {
       res.status(404).send(err);
     } else {
