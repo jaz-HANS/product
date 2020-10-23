@@ -28,16 +28,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // ==== PRODUCTS ROUTES =====
 // ==========================
 
-// app.get('/products/list', (req, res) => {
-//   ProductController.getProductList(req.body, (err, data) => {
-//     if (err) {
-//       res.status(500).send(err);
-//     } else {
-//       res.status(200).send(data);
-//     }
-//   });
-// });
-
 app.get('/products/list', async (req, res) => {
   try {
     const docs = await ProductController.getProductList(req.body);
@@ -56,24 +46,22 @@ app.get('/products/:product_id', async (req, res) => {
   }
 });
 
-app.get('/products/:product_id/styles', (req, res) => {
-  ProductController.getProductStyles(req.params.product_id, (err, data) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+app.get('/products/:product_id/styles', async (req, res) => {
+  try {
+    const docs = await ProductController.getOneProduct(req.params.product_id);
+    res.status(200).send(docs.styles);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 });
 
-app.get('/products/:product_id/related', (req, res) => {
-  ProductController.getRelatedProducts(req.params.product_id, (err, data) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+app.get('/products/:product_id/related', async (req, res) => {
+  try {
+    const docs = await ProductController.getOneProduct(req.params.product_id);
+    res.status(200).send(docs.related);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 });
 
 // ==========================
