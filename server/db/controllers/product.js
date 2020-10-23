@@ -1,15 +1,19 @@
 const { Product } = require('../models/product');
 
 const ProductController = {
-  getProductList: (body, callback) => {
+  // getProductList: (body, callback) => {
+  //   const max = body.count || 5;
+  //   Product.find((err, docs) => {
+  //     if (err) {
+  //       callback(err);
+  //     } else {
+  //       callback(null, docs);
+  //     }
+  //   }).setOptions({ limit: max });
+  // },
+  getProductList: (body) => {
     const max = body.count || 5;
-    Product.find((err, docs) => {
-      if (err) {
-        callback(err);
-      } else {
-        callback(null, docs);
-      }
-    }).setOptions({ limit: max });
+    return Product.find().setOptions({ limit: max });
   },
   getOneProduct: (id) => Product.findOne({ _id: id }),
   getProductStyles: (id, callback) => {
