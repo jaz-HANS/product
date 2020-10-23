@@ -12,7 +12,7 @@ const ProductController = {
     }).setOptions({ limit: max });
   },
   getOneProduct: (id, callback) => {
-    Product.find({ _id: id }, (err, doc) => {
+    Product.findOne({ _id: id }, (err, doc) => {
       if (err) {
         callback(err, null);
       } else {
@@ -21,7 +21,7 @@ const ProductController = {
     });
   },
   getProductStyles: (id, callback) => {
-    Product.find({ _id: id }, (err, doc) => {
+    Product.findOne({ _id: id }, (err, doc) => {
       if (err) {
         callback(err, null);
       } else {
@@ -30,7 +30,7 @@ const ProductController = {
     });
   },
   getRelatedProducts: (id, callback) => {
-    Product.find({ _id: id }, (err, doc) => {
+    Product.findOne({ _id: id }, (err, doc) => {
       if (err) {
         callback(err, null);
       } else {

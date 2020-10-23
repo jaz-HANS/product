@@ -39,7 +39,7 @@ app.get('/products/list', (req, res) => {
 });
 
 app.get('/products/:product_id', (req, res) => {
-  ProductController.getOneProduct(req.params.id, (err, data) => {
+  ProductController.getOneProduct(req.params.product_id, (err, data) => {
     if (err) {
       res.status(404).send(err);
     } else {
@@ -49,7 +49,7 @@ app.get('/products/:product_id', (req, res) => {
 });
 
 app.get('/products/:product_id/styles', (req, res) => {
-  ProductController.getProductStyles(req.params.id, (err, data) => {
+  ProductController.getProductStyles(req.params.product_id, (err, data) => {
     if (err) {
       res.status(404).send(err);
     } else {
@@ -59,7 +59,7 @@ app.get('/products/:product_id/styles', (req, res) => {
 });
 
 app.get('/products/:product_id/related', (req, res) => {
-  ProductController.getRelatedProducts(req.params.id, (err, data) => {
+  ProductController.getRelatedProducts(req.params.product_id, (err, data) => {
     if (err) {
       res.status(404).send(err);
     } else {
@@ -73,7 +73,7 @@ app.get('/products/:product_id/related', (req, res) => {
 // ==========================
 
 app.get('/cart/:user_session', (req, res) => {
-  CartController.getProductList(req.params.id, (err, data) => {
+  CartController.getProductList(req.params.user_session, (err, data) => {
     if (err) {
       res.status(404).send(err);
     } else {
