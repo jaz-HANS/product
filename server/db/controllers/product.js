@@ -6,8 +6,6 @@ const ProductController = {
     return Product.find().setOptions({ limit: max });
   },
   getOneProduct: (id) => Product.findOne({ _id: id }),
-  getProductStyles: (id) => Product.findOne({ _id: id }),
-  getRelatedProducts: (id) => Product.findOne({ _id: id }),
 };
 
 module.exports = {
