@@ -38,14 +38,13 @@ app.get('/products/list', (req, res) => {
   });
 });
 
-app.get('/products/:product_id', (req, res) => {
-  ProductController.getOneProduct(req.params.product_id, (err, data) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+app.get('/products/:product_id', async (req, res) => {
+  try {
+    const docs = await ProductController.getOneProduct(req.params.product_id);
+    res.status(200).send(docs);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 });
 
 app.get('/products/:product_id/styles', (req, res) => {

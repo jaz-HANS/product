@@ -11,15 +11,7 @@ const ProductController = {
       }
     }).setOptions({ limit: max });
   },
-  getOneProduct: (id, callback) => {
-    Product.findOne({ _id: id }, (err, doc) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, doc);
-      }
-    });
-  },
+  getOneProduct: (id) => Product.findOne({ _id: id }),
   getProductStyles: (id, callback) => {
     Product.findOne({ _id: id }, (err, doc) => {
       if (err) {
