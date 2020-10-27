@@ -4,9 +4,9 @@ const fs = require('fs');
 
 const writeProducts = fs.createWriteStream('products.json');
 
-function writeOneThousandProducts(writer, encoding, callback) {
+function writeTenMillionProducts(writer, encoding, callback) {
   console.time('NoSQL Generation Speed');
-  let i = 1000;
+  let i = 10000000;
   let productId = 0;
   let styleId = 1;
   function write() {
@@ -149,6 +149,6 @@ function writeOneThousandProducts(writer, encoding, callback) {
   write();
 }
 
-writeOneThousandProducts(writeProducts, 'utf-8', () => {
+writeTenMillionProducts(writeProducts, 'utf-8', () => {
   writeProducts.end();
 });
