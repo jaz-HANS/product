@@ -4,14 +4,14 @@ config:
     pool: 100
   phases:
     - duration: 30
-      arrivalRate: 15
+      arrivalRate: 200
       name: Warm up
     - duration: 60
-      arrivalRate: 25
-      rampTo: 200
+      arrivalRate: 400
+      rampTo: 600
       name: Ramp up load
     - duration: 30
-      arrivalRate: 10
+      arrivalRate: 400
       name: Sustained load
 scenarios:
   - name: 'Get products'
