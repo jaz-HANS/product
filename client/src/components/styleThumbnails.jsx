@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image';
 import { v4 as uuidv4 } from 'uuid';
 
 const StyleThumbnails = ({ styles, setCurrentStyle, currentStyle }) => {
-  const stylesArr = Object.entries(styles.results);
+  const stylesArr = Object.entries(styles);
 
   const handleStyleSelect = (styleId) => {
     for (let i = 0; i < stylesArr.length; i += 1) {
@@ -55,23 +55,6 @@ const StyleThumbnails = ({ styles, setCurrentStyle, currentStyle }) => {
       </Container>
     </div>
   );
-};
-
-StyleThumbnails.propTypes = {
-  styles: PropTypes.shape({
-    product_id: PropTypes.string,
-    results: PropTypes.arrayOf(PropTypes.object),
-  }).isRequired,
-  currentStyle: PropTypes.shape({
-    'default?': PropTypes.number,
-    name: PropTypes.string,
-    original_price: PropTypes.string,
-    photos: PropTypes.arrayOf(PropTypes.object),
-    sale_price: PropTypes.string,
-    skus: PropTypes.objectOf(PropTypes.number),
-    style_id: PropTypes.number,
-  }).isRequired,
-  setCurrentStyle: PropTypes.func.isRequired,
 };
 
 export default StyleThumbnails;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -132,41 +131,6 @@ const ProductInfo = ({
       </Row>
     </Container>
   );
-};
-
-ProductInfo.propTypes = {
-  styles: PropTypes.shape({
-    product_id: PropTypes.string,
-    results: PropTypes.arrayOf(PropTypes.object),
-  }).isRequired,
-  currentStyle: PropTypes.shape({
-    style_id: PropTypes.number,
-    name: PropTypes.string,
-    original_price: PropTypes.string,
-    sale_price: PropTypes.string,
-    default: PropTypes.number,
-    photos: PropTypes.arrayOf(PropTypes.object),
-    skus: PropTypes.objectOf(PropTypes.number),
-  }).isRequired,
-  product: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    slogan: PropTypes.string,
-    description: PropTypes.string,
-    category: PropTypes.string,
-    default_price: PropTypes.string,
-    features: PropTypes.arrayOf(PropTypes.object),
-  }).isRequired,
-  reviews: PropTypes.shape({
-    product_id: PropTypes.string,
-    ratings: PropTypes.objectOf(PropTypes.string),
-    recommended: PropTypes.objectOf(PropTypes.string),
-    characteristics: PropTypes.objectOf(PropTypes.string),
-  }).isRequired,
-  productId: PropTypes.number.isRequired,
-  setCurrentStyle: PropTypes.func.isRequired,
-  sessionId: PropTypes.number.isRequired,
-  addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductInfo;
