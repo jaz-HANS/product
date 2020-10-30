@@ -1,0 +1,22 @@
+config:
+  target: "http://localhost:3001"
+  phases:
+    - duration: 30
+      arrivalRate: 10
+      name: Warm up
+    - duration: 60
+      arrivalRate: 50
+      rampTo: 100
+      name: Ramp up load
+    - duration: 300
+      arrivalRate: 100
+      name: Sustained load
+scenarios:
+  - name: 'Get products'
+    flow:
+      - get:
+          url: '/products/list'
+      - loop:
+        - get:
+            url: '/products/{{$randomNumber(1,100000)}}'
+        count: 10
