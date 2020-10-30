@@ -1,4 +1,4 @@
-const apiPath = 'http://52.26.193.201:3000';
+const apiPath = 'http://localhost:3001/';
 // This is my default callback. It prevents callback is not a function error - Temporary
 const arrowFunc = (error, data) => { if (error) { return error; } return data; };
 
@@ -260,7 +260,7 @@ Status: 200 OK
 }
 */
 export const getReviews = (productId, callback) => {
-  const path = `${apiPath}/reviews/${productId}/meta`;
+  const path = `http://52.26.193.201:3000/reviews/${productId}/meta`;
   return fetch(path)
     .then((result) => result.json())
     .then((data) => {
@@ -304,7 +304,7 @@ Status: 200 OK
 // BUG: cart data is coming back as undefined in routes, app, productInfo, and Cart.
 // BUG FIXED: I had curly braces surrounding my response.json
 export const getCart = ((sessionId, callback = arrowFunc) => {
-  const path = `${apiPath}/cart/${sessionId}`;
+  const path = `http://52.26.193.201:3000/cart/${sessionId}`;
   fetch(path)
     .then((response) => response.json())
     .then((data) => {
@@ -326,7 +326,7 @@ product_id   int         ID for the product being added to the cart
 Status: 201 CREATED
 */
 export const addToCart = ((sessionId, productId, callback = arrowFunc) => {
-  const path = `${apiPath}/cart/`;
+  const path = 'http://52.26.193.201:3000/cart/';
   fetch(path, {
     method: 'POST',
     headers: {
