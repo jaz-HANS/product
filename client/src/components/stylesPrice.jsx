@@ -30,16 +30,4 @@ const StylePrice = ({ currentStyle }) => {
   );
 };
 
-StylePrice.propTypes = {
-  currentStyle: PropTypes.shape({
-    'default?': PropTypes.number,
-    name: PropTypes.string,
-    original_price: PropTypes.string,
-    photos: PropTypes.arrayOf(PropTypes.object),
-    sale_price: PropTypes.string,
-    skus: PropTypes.objectOf(PropTypes.number),
-    style_id: PropTypes.number,
-  }).isRequired,
-};
-
 export default StylePrice;

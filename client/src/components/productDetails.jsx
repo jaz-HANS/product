@@ -12,16 +12,4 @@ const ProductDetails = ({ product, productId }) => (
   </Container>
 );
 
-ProductDetails.propTypes = {
-  productId: PropTypes.number.isRequired,
-  product: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    slogan: PropTypes.string,
-    description: PropTypes.string,
-    category: PropTypes.string,
-    default_price: PropTypes.string,
-    features: PropTypes.arrayOf(PropTypes.object),
-  }).isRequired,
-};
 export default ProductDetails;

@@ -37,8 +37,4 @@ const Search = ({ setId }) => {
   );
 };
 
-Search.propTypes = {
-  setId: PropTypes.func.isRequired,
-};
-
 export default Search;

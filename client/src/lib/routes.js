@@ -1,4 +1,4 @@
-const apiPath = 'http://localhost:3001/';
+const apiPath = 'http://localhost:3001';
 // This is my default callback. It prevents callback is not a function error - Temporary
 const arrowFunc = (error, data) => { if (error) { return error; } return data; };
 
@@ -154,10 +154,10 @@ export const getDefaultStyle = (productId, callback) => {
   return fetch(path)
     .then((result) => result.json())
     .then((data) => {
-      const stylesArr = data.results;
+      const stylesArr = data;
       for (let i = 0; i < stylesArr.length; i += 1) {
         const current = stylesArr[i];
-        if (current['default?'] > 0) {
+        if (current['default?']) {
           callback(null, current);
         }
       }

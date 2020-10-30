@@ -82,16 +82,4 @@ const MainImage = ({ currentStyle }) => {
   );
 };
 
-MainImage.propTypes = {
-  currentStyle: PropTypes.shape({
-    style_id: PropTypes.number,
-    name: PropTypes.string,
-    original_price: PropTypes.string,
-    sale_price: PropTypes.string,
-    default: PropTypes.number,
-    photos: PropTypes.arrayOf(PropTypes.object),
-    skus: PropTypes.objectOf(PropTypes.number),
-  }).isRequired,
-};
-
 export default MainImage;

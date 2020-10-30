@@ -51,15 +51,4 @@ const DetailedInfo = ({ product }) => {
   );
 };
 
-DetailedInfo.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    slogan: PropTypes.string,
-    description: PropTypes.string,
-    category: PropTypes.string,
-    default_price: PropTypes.string,
-    features: PropTypes.arrayOf(PropTypes.object),
-  }).isRequired,
-};
 export default DetailedInfo;
