@@ -23,8 +23,8 @@ const StyleThumbnails = ({ styles, setCurrentStyle, currentStyle }) => {
       <Container className="thumbnails-cage">
         {stylesArr.map((photo) => {
           let photoUrl = '';
-          const styleId = photo[1].style_id;
-          const firstPhoto = photo[1];
+          const styleId = photo.style_id;
+          const firstPhoto = photo;
           if (
             firstPhoto.thumbnail_url === undefined
             || firstPhoto.thumbnail_url === null
