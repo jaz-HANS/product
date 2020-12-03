@@ -24,7 +24,7 @@ const StyleThumbnails = ({ styles, setCurrentStyle, currentStyle }) => {
         {stylesArr.map((photo) => {
           let photoUrl = '';
           const styleId = photo[1].style_id;
-          const firstPhoto = photo[1].photos[0];
+          const firstPhoto = photo[1];
           if (
             firstPhoto.thumbnail_url === undefined
             || firstPhoto.thumbnail_url === null
