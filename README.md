@@ -1,3 +1,31 @@
+## Project setup
+```
+npm install
+```
+
+### Seed DB (MongoDB)
+- (WARNING: This will insert 10M records into your DB and may take 5-10 minutes depending on your machine. You'll know it's finished when you receive a 'NoSQL Generation Speed (time)' log in your console.) 
+```
+npm run seed
+```
+
+### Start server, launch app (port 3001)
+- (You'll know the database hasn't been correctly established if you see a 504 upon page load.)
+```
+npm run server
+```
+
+### Compiles
+```
+npm run build
+```
+
+### Stress Test
+- (Should you want to stress test, run this after you've seeded your DB and launched the server.)
+```
+npm run artillery
+```
+
 ## Product Detail Page
 The product detail page will show relevant information for a single product in the catalogue.  Our catalogue is organized by *products*.  One single product can be associated with many sizes and styles which each result in unique SKUs (stock keeping units).  The product detail page will present items at the product level.  Further breakdown by style or size will only be reflected within the product detail page.
 
