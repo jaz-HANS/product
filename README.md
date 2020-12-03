@@ -4,7 +4,7 @@ npm install
 ```
 
 ### Seed DB (MongoDB)
-- (WARNING: This will insert 10M records into your DB and may take 5-10 minutes depending on your machine. After a few minutes, you'll receive a 'NoSQL Generation Speed (time)' log in your console, followed shortly by additional console progress updates.) 
+- (WARNING: This will insert 1M records into your DB and may take 5-10 minutes depending on your machine. After a few minutes, you'll receive a 'NoSQL Generation Speed (time)' log in your console, followed shortly by additional console progress updates.) 
 ```
 npm run seed
 ```
