@@ -1,6 +1,3 @@
-# product-detail
-The product detail page will show relevant information for a single product in the catalogue.
-
 ## Product Detail Page
 The product detail page will show relevant information for a single product in the catalogue.  Our catalogue is organized by *products*.  One single product can be associated with many sizes and styles which each result in unique SKUs (stock keeping units).  The product detail page will present items at the product level.  Further breakdown by style or size will only be reflected within the product detail page.
 
